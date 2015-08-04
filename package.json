@@ -1,6 +1,6 @@
 {
   "name": "coffee-coverage-loader",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Webpack coffee-coverage loader to compile and instrument CoffeeScript with sourcemaps support",
   "main": "index.js",
   "scripts": {
