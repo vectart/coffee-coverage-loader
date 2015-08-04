@@ -14,7 +14,6 @@ module.exports = function(source) {
     }
 
     var coffeeRequest = loaderUtils.getRemainingRequest(this);
-    var jsRequest = loaderUtils.getCurrentRequest(this);
 
     var coffeeScriptOptions = {
         filename: coffeeRequest,
@@ -34,9 +33,7 @@ module.exports = function(source) {
     instrumentedJS = instrumentedJS.init + '\n\n' + instrumentedJS.js;
     var instrumentedProgram = esprima.parse(instrumentedJS, esprimaOptions);
 
-    var start = new Date();
     var compiledJS = coffee.compile(source, coffeeScriptOptions);
-
     var compiledProgram = esprima.parse(compiledJS.js, esprimaOptions);
 
     var smLines = compiledJS.sourceMap.lines;
