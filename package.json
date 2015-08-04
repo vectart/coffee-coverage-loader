@@ -1,0 +1,39 @@
+{
+  "name": "coffee-coverage-loader",
+  "version": "1.0.0",
+  "description": "Webpack coffee-coverage loader to compile and instrument CoffeeScript with sourcemaps support",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vectart/coffee-coverage-loader"
+  },
+  "keywords": [
+    "webpack",
+    "coffeescript",
+    "coffee-coverage",
+    "loader",
+    "tests",
+    "coverage",
+    "karma",
+    "sourcemap"
+  ],
+  "author": "Marat Dyatko",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vectart/coffee-coverage-loader/issues"
+  },
+  "homepage": "https://github.com/vectart/coffee-coverage-loader",
+  "dependencies": {
+    "coffee-coverage": "^0.6.2",
+    "coffee-script": "^1.9.3",
+    "esprima": "^2.5.0",
+    "loader-utils": "^0.2.11"
+  },
+  "devDependencies": {
+    "chai": "^3.2.0",
+    "mocha": "^2.2.5"
+  }
+}
