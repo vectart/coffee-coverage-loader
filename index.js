@@ -13,7 +13,7 @@ module.exports = function(source) {
         this.cacheable();
     }
 
-    var coffeeRequest = loaderUtils.getRemainingRequest(this);
+    var coffeeRequest = loaderUtils.interpolateName(this, '[path][name].[ext]', {});
 
     var coffeeScriptOptions = {
         filename: coffeeRequest,
