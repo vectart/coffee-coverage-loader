@@ -27,13 +27,13 @@
   },
   "homepage": "https://github.com/vectart/coffee-coverage-loader",
   "dependencies": {
-    "coffee-coverage": "^0.6.2",
-    "coffee-script": "^1.9.3",
-    "esprima": "^2.5.0",
-    "loader-utils": "^0.2.11"
+    "coffee-coverage": "^3.0.1",
+    "coffeescript": "^1.12.7",
+    "esprima": "^4.0.1",
+    "loader-utils": "^1.1.0"
   },
   "devDependencies": {
     "chai": "^3.2.0",
-    "mocha": "^2.2.5"
+    "mocha": "^5.2.0"
   }
 }

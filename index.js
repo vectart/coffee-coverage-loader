@@ -1,5 +1,5 @@
 var loaderUtils = require('loader-utils');
-var coffee = require("coffee-script");
+var coffee = require("coffeescript");
 var esprima = require('esprima');
 var CoverageInstrumentor = require('coffee-coverage/lib/coffeeCoverage').CoverageInstrumentor;
 
@@ -21,7 +21,7 @@ module.exports = function(source) {
         sourceMap: true,
         sourceRoot: "",
         sourceFiles: [ coffeeRequest ],
-        inline: true
+        inlineMap: true
     };
 
     var esprimaOptions = {
@@ -98,7 +98,5 @@ module.exports = function(source) {
     }
 
     var sourceMap = compiledJS.sourceMap.generate(coffeeScriptOptions, source);
-    sourceMap = JSON.parse(sourceMap);
-
     this.callback(null, instrumentedJS, sourceMap);
 };
