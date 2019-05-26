@@ -26,7 +26,8 @@ module.exports = function(source) {
 
     var esprimaOptions = {
       loc: true,
-      tokens: true
+      tokens: true,
+      jsx: true
     };
 
     var instrumentedJS = instrumentor.instrumentCoffee(coffeeRequest, source);
