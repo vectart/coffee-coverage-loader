@@ -1,6 +1,6 @@
 class Animal
   constructor: (@name) ->
-  	@log = []
+    @log = []
 
   move: (meters) ->
     @log.push @name + " moved #{meters}m."

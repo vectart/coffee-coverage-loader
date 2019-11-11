@@ -11,7 +11,7 @@ var loader;
 describe('Coffee-coverage loader', function () {
 	Loader.prototype.loaders = ['coffee-coverage-loader'];
 	Loader.prototype.loaderIndex = 0;
-	
+
 	it('should compile CoffeeScript', function (done) {
 		// given
 		Loader.prototype.callback = callback;
@@ -22,7 +22,7 @@ describe('Coffee-coverage loader', function () {
 		// then
 		function callback(err, js, sourcemap) {
 			expect(err).to.be.null;
-			expect(js).have.length(4411);
+			expect(js).have.length(4314);
 			done();
 		};
 	});
@@ -38,13 +38,14 @@ describe('Coffee-coverage loader', function () {
 		function callback(err, js, sourcemap) {
 			eval(js);
 
-			expect(js.match(/_\$coffeeIstanbul\[\"\"\]\.s/g).length).to.equal(15);
-			expect(global._$coffeeIstanbul[''].s).to.eql({
+			cov = global.__coverage__['file.bin']
+
+			expect(cov.s).to.eql({
 			  '1': 1,
 			  '2': 2,
 			  '3': 2,
 			  '4': 2,
-			  '5': 2,
+			  '5': 1,
 			  '6': 1,
 			  '7': 1,
 			  '8': 1,
@@ -53,12 +54,10 @@ describe('Coffee-coverage loader', function () {
 			  '11': 1,
 			  '12': 1,
 			  '13': 1,
-			  '14': 1,
-			  '15': 1
+			  '14': 1
 			});
 
-			expect(js.match(/_\$coffeeIstanbul\[\"\"\]\.f/g).length).to.equal(7);
-			expect(global._$coffeeIstanbul[''].f).to.eql({
+			expect(cov.f).to.eql({
 			  '1': 1,
 			  '2': 2,
 			  '3': 2,
@@ -85,10 +84,10 @@ describe('Coffee-coverage loader', function () {
 			expect(sourcemap).to.eql({
 				file: '',
 				names: [],
-				mappings: ';;;;;;;;;EAAA,IAAA,MAAA;IAAA;;;;;EAAM,UACS;;;oBAAC,IAAD;MAAC,IAAC,CAAA,OAAD;;;MACb,IAAC,CAAA,MAAM;IADK;;qBAGb,OAAM,SAAC,MAAD;;;aACJ,IAAC,CAAA,GAAG,CAAC,IAAL,CAAU,IAAC,CAAA,OAAO,8BAAA,0CAAU,UAAO,IAAjB,CAAlB;IADI;;;;;;;;EAGF;;;;;;;;;oBACJ,OAAM,SAAA;;;MACJ,IAAC,CAAA,GAAG,CAAC,IAAL,CAAU,eAAV;;aACA,gCAAM,CAAN;IAFI;;;;KADY;;;;EAKd;;;;;;;;;oBACJ,OAAM,SAAA;;;MACJ,IAAC,CAAA,GAAG,CAAC,IAAL,CAAU,cAAV;;aACA,gCAAM,EAAN;IAFI;;;;KADY;;;;EAKpB,MAAU,IAAA,KAAA,CAAM,kBAAN;;;;EACV,MAAU,IAAA,KAAA,CAAM,oBAAN;;;;EAEV,GAAG,CAAC,IAAJ,CAAA;;;;EACA,GAAG,CAAC,IAAJ,CAAA',
-				sourcesContent: [ testCoffeeSource ],
+				mappings: ';;;;;;;;;EAAA,IAAA,MAAA,EAAA,KAAA,EAAA,KAAA,EAAA,GAAA,EAAA;;;;EAAM;IAAN,MAAA,OAAA;MACE,WAAa,KAAA;QAAC,IAAC,CAAA;;;QACb,IAAC,CAAA,MAAM;MADI;;MAGb,IAAM,CAAC,MAAD;;;eACJ,IAAC,CAAA,GAAG,CAAC,IAAL,CAAU,IAAC,CAAA,OAAO,4CAAU,OAAV,IAAlB;MADI;;IAJR;;;;;;;;;;EAOM;IAAN,MAAA,MAAA,QAAoB,OAApB;MACE,IAAM,CAAA;;;QACJ,IAAC,CAAA,GAAG,CAAC,IAAL,CAAU,eAAV;gCADF;qBAAA,IAEE,CAAM,CAAN;MAFI;;IADR;;;;;;;;;;EAKM;IAAN,MAAA,MAAA,QAAoB,OAApB;MACE,IAAM,CAAA;;;QACJ,IAAC,CAAA,GAAG,CAAC,IAAL,CAAU,cAAV;gCADF;qBAAA,IAEE,CAAM,EAAN;MAFI;;IADR;;;;;;;;;;EAKA,MAAM,IAAI,KAAJ,CAAU,kBAAV;;;;EACN,MAAM,IAAI,KAAJ,CAAU,oBAAV;;;;EAEN,GAAG,CAAC,IAAJ,CAAA;;;;EACA,GAAG,CAAC,IAAJ,CAAA',
+				sourcesContent: [testCoffeeSource],
 				sourceRoot: '',
-				sources: [''],
+				sources: ['file.bin'],
 				version: 3
 			});
 			done();
