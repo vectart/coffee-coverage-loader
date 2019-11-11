@@ -1,5 +1,5 @@
 {
-  "name": "coffee-coverage-loader",
+  "name": "zolmeister-coffee-coverage-loader",
   "version": "1.0.2",
   "description": "Webpack coffee-coverage loader to compile and instrument CoffeeScript with sourcemaps support",
   "main": "index.js",
